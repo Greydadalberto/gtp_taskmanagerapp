@@ -8,12 +8,22 @@ export default function Home() {
   const auth = useAuth();
   const router = useRouter();
 
-  useEffect(() => {
-    if (auth.isAuthenticated) {
-      const groups = auth.user?.profile["cognito:groups"];
-      router.replace(groups?.includes("Admin") ? "/admin" : "/team");
+useEffect(() => {
+  if (auth.isAuthenticated) {
+    const groups = auth.user?.profile["cognito:groups"];
+    console.log("Authenticated user:", auth.user?.profile);
+    console.log("Groups:", groups);
+
+    if (Array.isArray(groups)) {
+      router.replace(groups.includes("admingroup") ? "/admin" : "/team");
+    } else if (typeof groups === "string") {
+      router.replace(groups === "admingroup" ? "/admin" : "/team");
+    } else {
+      console.warn("No group info found, redirecting to /team");
+      router.replace("/team");
     }
-  }, [auth.isAuthenticated]);
+  }
+}, [auth.isAuthenticated]);
 
   const signOutRedirect = () => {
     const clientId = "4fi4lbbl6t3oo8cs5jcsug9v8n";

@@ -99,7 +99,7 @@ Cognito integration provides secure authentication and role-based authorization.
 - **API:** AWS API Gateway + AWS Lambda
 - **Database:** Amazon DynamoDB
 - **Notifications:** Nodemailer (Lambda)
-- **Deployment:** s3/cloudfront
+- **Deployment:** amplify
 
  Features
 
@@ -182,23 +182,4 @@ This project is a React/Next.js task management application deployed using AWS S
 
 ---
 
-## Deployment Setup
 
-# Why S3 + CloudFront instead of Amplify?
-
-While AWS Amplify offers a fully managed hosting solution for frontend apps, this project uses **AWS S3** for static file hosting combined with **CloudFront** as a CDN for better global performance and caching control.
-
-This approach provides:
-
-- Full control over the static hosting and caching strategy
-- Cost-effective hosting for static sites
-- Fast global delivery using CloudFront edge locations
-- Easy invalidation and versioning management through CloudFront
-
----
-1. Build the Next.js App
-
-The project is configured to export a fully static version of the site.
-
-```bash
-npm run build

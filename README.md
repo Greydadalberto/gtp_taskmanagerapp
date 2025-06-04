@@ -92,9 +92,23 @@ DynamoDB scalability ensures efficient handling of task data.
 
 Cognito integration provides secure authentication and role-based authorization.
 
+  Tech Stack
 
+- **Frontend:** Next.js 15, Tailwind CSS, React 19
+- **Auth:** Amazon Cognito
+- **API:** AWS API Gateway + AWS Lambda
+- **Database:** Amazon DynamoDB
+- **Notifications:** Nodemailer (Lambda)
+- **Deployment:** AWS Amplify
 
+ Features
 
+- Auth with AWS Cognito (Admin & Team roles)
+- Admin creates & assigns tasks
+- Team views & updates their tasks
+- Email reminders for upcoming deadlines
+- Fully serverless with DynamoDB storage
+- Deployed using AWS Amplify (CI/CD enabled)
 
 GTP Task Manager App
 A serverless task management system designed for field teams, leveraging AWS services and built with Next.js.
@@ -111,25 +125,9 @@ User Authentication: Secure login and access control.
 
 Responsive Design: Optimized for both desktop and mobile devices.
 
-Tech Stack
-Frontend: Next.js, TypeScript, Tailwind CSS
 
-Backend: AWS Lambda, API Gateway, DynamoDB
 
-Authentication: AWS Cognito
-
-CI/CD: GitLab CI/CD
-GitHub Docs
-
-Getting Started
-Prerequisites
-Node.js (v14 or later)
-
-npm or yarn
-
-AWS account with necessary permissions
-
-<<<<<<< HEAD
+< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 
@@ -174,5 +172,7 @@ Edit
 ├── package.json         # Project metadata and scripts
 ├── tsconfig.json        # TypeScript configuration
 └── README.md            # Project documentation
+
+
 Deployment
 The application is configured for deployment using GitLab CI/CD pipelines. Ensure that your GitLab repository has the necessary environment variables set up for AWS deployment.

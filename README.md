@@ -99,7 +99,7 @@ Cognito integration provides secure authentication and role-based authorization.
 - **API:** AWS API Gateway + AWS Lambda
 - **Database:** Amazon DynamoDB
 - **Notifications:** Nodemailer (Lambda)
-- **Deployment:** AWS Amplify
+- **Deployment:** s3/cloudfront
 
  Features
 
@@ -108,7 +108,7 @@ Cognito integration provides secure authentication and role-based authorization.
 - Team views & updates their tasks
 - Email reminders for upcoming deadlines
 - Fully serverless with DynamoDB storage
-- Deployed using AWS Amplify (CI/CD enabled)
+- Deployed using AWS s3/cloudfront
 
 GTP Task Manager App
 A serverless task management system designed for field teams, leveraging AWS services and built with Next.js.
@@ -174,5 +174,31 @@ Edit
 └── README.md            # Project documentation
 
 
-Deployment
-The application is configured for deployment using GitLab CI/CD pipelines. Ensure that your GitLab repository has the necessary environment variables set up for AWS deployment.
+
+
+# Task Manager App
+
+This project is a React/Next.js task management application deployed using AWS S3 and CloudFront.
+
+---
+
+## Deployment Setup
+
+# Why S3 + CloudFront instead of Amplify?
+
+While AWS Amplify offers a fully managed hosting solution for frontend apps, this project uses **AWS S3** for static file hosting combined with **CloudFront** as a CDN for better global performance and caching control.
+
+This approach provides:
+
+- Full control over the static hosting and caching strategy
+- Cost-effective hosting for static sites
+- Fast global delivery using CloudFront edge locations
+- Easy invalidation and versioning management through CloudFront
+
+---
+1. Build the Next.js App
+
+The project is configured to export a fully static version of the site.
+
+```bash
+npm run build
